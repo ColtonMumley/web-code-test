@@ -1,6 +1,8 @@
 import StockProductsData from "./data/stockProducts.json";
 
-const StockProducts = () => (
+const StockProducts = (props) => {
+
+  return (
   <div className="w-full mt-4">
     <h1 className="font-semibold text-2xl">Products</h1>
 
@@ -9,6 +11,7 @@ const StockProducts = () => (
         <button
           className="flex flex-col appearance-none border border-gray-200 rounded w-48 p-4 m-2 justify-start items-center hover:bg-gray-100 relative"
           key={stockProductData.itemNumber}
+          onClick={() => {props.sendSelectedItem(stockProductData)}}
         >
           <img src={stockProductData.image} alt={stockProductData.name} className="block w-full rounded shadow p-2 bg-white" />
           <h4 className="flex flex-1 items-center font-semibold leading-4 mt-2">{stockProductData.name}</h4>
@@ -21,6 +24,6 @@ const StockProducts = () => (
       ))}
     </div>
   </div>
-);
+)};
 
 export default StockProducts;
